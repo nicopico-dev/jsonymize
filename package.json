@@ -13,9 +13,9 @@
     "url": "http://github.com/cameronhunter/jsonymize.git"
   },
   "dependencies": {
-    "chance": "~0.7.3",
-    "check-types": "~3.3.0",
-    "cjson": "~0.3.1",
+    "chance": "~1.1.11",
+    "check-types": "~11.2.2",
+    "cjson": "~0.5.0",
     "oboe": "~2.1.2",
     "yargs": "~17.7.2"
   },
