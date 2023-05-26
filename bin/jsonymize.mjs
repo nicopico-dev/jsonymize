@@ -11,6 +11,10 @@ import path from "path";
 
 let argv = yargs(process.argv.slice(2))
   .usage("Anonymize JSON values.\n\nUsage: $0 [fields]")
+  .options("f", {
+    alias: "file",
+    description: "JSON file whose content must be anonymized"
+  })
   .options("e", {
     alias: "extension",
     description: "ChanceJS mixin providing custom generators"
@@ -37,6 +41,7 @@ if (configPath && !fs.existsSync(configPath)) {
   exit(2);
 }
 
+const input = argv.f ? fs.createReadStream(argv.f) : stdin;
 const config = argv.config ? CJSON.load(argv.config) : {};
 const generators = argv.generator || config.generators || {};
 const extensions = fallback(argv.extension, relative(argv.config, config.extensions), []);
@@ -50,7 +55,7 @@ const anonymizer = new JsonymizeLib({
   extensions: extensions.map(_ => require(path.resolve(cwd(), _)))
 });
 
-anonymizer.anonymize(stdin).then(anonymized => {
+anonymizer.anonymize(input).then(anonymized => {
   stdout.write(`${JSON.stringify(anonymized)}\n`);
   exit(0);
 }).catch(error => {

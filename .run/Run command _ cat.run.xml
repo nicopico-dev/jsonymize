@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run command" type="ShConfigurationType">
+  <configuration default="false" name="Run command | cat" type="ShConfigurationType">
     <option name="SCRIPT_TEXT" value="cat sample/auth-response.json| npx jsonymize token emailaddress servertime" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
