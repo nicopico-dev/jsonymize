@@ -4,9 +4,9 @@
   "version": "2.0.0",
   "description": "Anonymize JSON values, easily.",
   "license": "MIT",
-  "main": "lib/jsonymize.js",
+  "main": "lib/jsonymize-lib.mjs",
   "bin": {
-    "jsonymize": "bin/jsonymize"
+    "jsonymize": "bin/jsonymize.mjs"
   },
   "repository": {
     "type": "git",

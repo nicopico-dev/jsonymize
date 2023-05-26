@@ -1,6 +1,6 @@
 #!/usr/bin/env babel-node
 
-import Jsonymize from "../lib/jsonymize";
+import JsonymizeLib from "../lib/jsonymize-lib.mjs";
 
 import CJSON from "cjson";
 import Check from "check-types";
@@ -47,7 +47,7 @@ const extensions = fallback(argv.extension, relative(argv.config, config.extensi
 const aliases = argv.alias || config.aliases || {};
 const fields = (argv._.length ? argv._ : undefined) || config.fields || [];
 
-const anonymizer = new Jsonymize({
+const anonymizer = new JsonymizeLib({
   aliases: aliases,
   fields: fields,
   generators: generators,
