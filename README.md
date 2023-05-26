@@ -8,7 +8,7 @@ npm install -g babel jsonymize
 
 ## Usage
 jsonymize reads data from standard input, anonymizes, then writes to
-standard output. By default all fields are anonymized, however, specific field
+standard output. By default, all fields are anonymized, however, specific field
 names can be passed as arguments as shown below.
 
 Choose fields to anonymize:
