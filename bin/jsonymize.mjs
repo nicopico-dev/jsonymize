@@ -4,13 +4,13 @@ import JsonymizeLib from "../lib/jsonymize-lib.mjs";
 
 import CJSON from "cjson";
 import Check from "check-types";
-import Yargs from "yargs";
+import yargs from "yargs/yargs";
 
 import fs from "fs";
 import path from "path";
 
-Yargs
-  .usage("Anonymize JSON values.\n\nUsage: jsonymize [fields]")
+let argv = yargs(process.argv.slice(2))
+  .usage("Anonymize JSON values.\n\nUsage: $0 [fields]")
   .options("e", {
     alias: "extension",
     description: "ChanceJS mixin providing custom generators"
@@ -22,18 +22,14 @@ Yargs
   .options("h", {
     alias: "help",
     description: "Show this help message"
-  });
+  })
+  .help()
+  .argv;
 
-const { argv } = Yargs;
 const { stdin, stdout, stderr, exit, cwd } = process;
 
 stdin.resume();
 stdin.setEncoding("utf8");
-
-if (argv.help) {
-  Yargs.showHelp();
-  exit(1);
-}
 
 const configPath = argv.config ? path.resolve(cwd(), argv.config) : undefined;
 if (configPath && !fs.existsSync(configPath)) {
