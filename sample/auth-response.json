@@ -6,7 +6,7 @@
     "method": "auth.new",
     "clienttime": false,
     "servertime": "1679519482",
-    "authtoken": false,
+    "authtoken": "c3c9e664fdc1d7ab54cb3979f2879a7c2944a98adf3349130b4b4be74b6b34bc",
     "callback": false,
     "excludedeleted": false,
     "logbookdaysback": false,
