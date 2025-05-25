@@ -56,8 +56,10 @@ const anonymizer = new JsonymizeLib({
 });
 
 anonymizer.anonymize(input).then(anonymized => {
-  stdout.write(`${JSON.stringify(anonymized)}\n`);
-  exit(0);
+  stdout.write(`${JSON.stringify(anonymized)}\n`, () => {
+    stdout.end();
+    stdout.on('finish', () => exit(0));
+  });
 }).catch(error => {
   stderr.write(`Error! ${JSON.stringify(error.thrown)}\n`);
   exit(3);
